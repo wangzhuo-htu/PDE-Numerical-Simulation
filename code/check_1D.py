@@ -15,6 +15,7 @@ fCa = interp1d(air['时间'], air['水分浓度'], kind='linear', fill_value='ex
 rad = pd.read_excel('附件2.xlsx')
 fR = interp1d(rad['时间'], rad['半径'] / 100.0, kind='linear', fill_value='extrapolate')
 
+
 def get_bc(tNow):
     return (float(fTa(tNow)) if tNow <= 14400 else 50.165,
             float(fCa(tNow)) if tNow <= 14400 else 0.04986)
